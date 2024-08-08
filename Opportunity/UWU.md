@@ -3,7 +3,7 @@
 Originally based out of the Sol system and named after the one of the gods of the oceans, UWU was originally a interplanetary shipping company that operated at the edge of their star system. As interstellar trade expanded, they soon grew into a multi-system union and trade organization.
 
 Currently, 5 members participate and form the governing body of UWU known as the Council.
-- The first seat is head by UWU itself on behalf of the Sol system.
+- The first seat is held by UWU itself on behalf of the Sol system.
 - The second seat is held by the Sovereign Legion who occupies territory across roughly 16 stars.
 - The third seat is held by the Empire of Spectra who currently claims territory across 2 stars.
 - The fourth seat is held by the New Weave Alliance who currently claims 1 star.
