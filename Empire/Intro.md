@@ -1,1 +1,10 @@
+# Stratum, Empire of Tanta'knoll
+Stratum is the effort of the "Empire of Tanta'knoll" to rebuild the broken world. The Empire demands complete fealty to the Empress and her rank-and-file. To speak ill of the Empire or the Empress herself is considered heresy and those who do so are persecuted to the most extremes. The Empress governs all and her authority is absolute.
+In its prime, the Empire spanned multiple sectors across the galaxy. Falling the Fracture however, many opportunists sought to use the opportunity to rebel. Most of the Empire's forces were lost in the resulting civil war with many sectors still left unsecured.
+Stratum was a task-force assembled by Commander Malefactor-IX, or "Malix", to retake the fractured homeworld despite being a sworn enemy of the Empire prior to the Fracture. Their reasons for allying themselves and later taking on a rank only exceeded by the royal guard is unknown, but their commitment to the restoration has thus far proven sincere.
 
+The Stratum has no intention of working with those outside of their system. They see Scavengers as a pest to be exterminated like the rest. The Usurpers, who in some circles of Stratum are blamed for the planet's fracturing, are also treated with extreme hostility and are usually engaged on sight. The Corrupted however are seen as the biggest threat on the Fractured world, with many 'volunteers' meeting their end to the accursed horde.
+
+The Stratum is far from the Empire's worst, but beneath their heavily armored exterior is a conviction that remains unbroken. Even on the brink of ruin, the Empire is able to sustain itself through its commitment to their Empress and her loyal servants.
+
+Stratum specializes in ranged engagements. Once having access to practically an infinite supply of resources, they were able to develop some of the best weapons technology the galaxy had ever seen. Everything from laser rifles, improved warp drives, and orbital bombardments are at their disposal. Defensively, they strike a balance between raw protection and vitality, though some who specialize in armor can be tough to crack without unconventional methods.
