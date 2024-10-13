@@ -1,5 +1,5 @@
 ### Arcana: A summary
-Many instutitions have tried to form a consensus on matters of the unknown. Among the most popular of theories is that of some divine or multiple deities, or the old tried and tested "it's magic, so we don't have to explain shit". For those who prefer to have an actual understandinf of what we're dealing with, we refer to these matters as Arcana.
+Many instutitions have tried to form a consensus on matters of the unknown. Among the most popular of theories is that of some divine or multiple deities, or the old tried and tested "it's magic, so we don't have to explain shit". For those who prefer to have an actual understanding of what we're dealing with, we refer to these matters as Arcana.
 
 'Arcana' is thus used as a catch-all term to explain feats or events which have no other explanation. Things which should be impossible, but have yet transpired all the same. However, not all Arcana is the same. Arcana manifests in 2 particular forms: Corporeal Arcana which largely adheres the laws of the universe; and Non-corporeal Arcana, 'Aetherial' Arcana, or simply "Aether" - while rare - is as unpredictable as it is powerful.
 
