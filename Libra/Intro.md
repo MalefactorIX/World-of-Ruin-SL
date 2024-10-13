@@ -1,6 +1,6 @@
 # Libra
 Also known as the "Rebels", "Heretics", etc, these individuals operate under a unified front called "Libra". Libra consists of individual leaders spread across multiple worlds who oppose the Empire of Tanta'knoll. Throughout history, they have been the banner for liberation and freedom from the Empire's rule.
-Libra's rank and file typically use old or scavenged empire tech as well as anything else they can get ahold of. Local leaders often band together to content the Empire's claim over a given territories and later work together to establish a democratic governing body.
+Libra's rank and file typically use old or scavenged empire tech as well as anything else they can get ahold of. Local leaders often band together to contest the Empire's claim over a given territories and later work together to establish a democratic governing body.
 
 Libra's only direct hostility is towards servants of the Empire. They often trade with Opportunist groups and generally bare no ill-will to those who seek to do business with them. The corrupted, however, are greatly feared as many alphas are known to use Libra's encampments as feeding opportunities. Some Libra outposts have even been seen leaving buckets of food to ward off their would-be assailants.
 
