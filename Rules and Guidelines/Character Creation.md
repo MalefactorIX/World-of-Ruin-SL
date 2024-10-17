@@ -29,7 +29,7 @@ Once corruption reaches 1000, you cannot recover from it any more and your facti
 # Faction-Specific Uniform Guidelines
 ### Empire of Tanta'knoll
 - A uniform is provided for characters where needed.
-- You may modified or recreate this uniform as long as it closely resembles the design or color scheme.
+- You may modify or recreate this uniform as long as it closely resembles the design or color scheme.
 - Core components of the uniform consist of a Chest Guard (1 Piece), Thigh Guards (2 Pieces), Waist Guard (1 Piece), and Arm Guards (2 Pieces).
 - Faction leaders may not change the overall design but have full reign over insignias and designations.
 
