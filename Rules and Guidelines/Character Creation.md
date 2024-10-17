@@ -14,8 +14,8 @@ This documentation refers to functions that will be available in the WOR 2.0 HUD
 
 # HUD Setup
 1. Click the HEART icon on your hud and select "Character" from the dialog menu.
-2. Click "New". You will then be prompted to enter a "Name" and "Faction".
-3. After confirming the name and faction are correct, hit "Save".
+2. Click "New". You will then be prompted to enter a "Name", "Type", and "Faction".
+3. After confirming the name, type, and faction are correct, hit "Save".
 4. To load up the character, repeated Step 1 and select "Load".
 5. You can now access the character from the load menu.
 
