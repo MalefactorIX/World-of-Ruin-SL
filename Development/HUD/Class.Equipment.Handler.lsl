@@ -12,15 +12,17 @@ string datatype;
 string o;
 string pass="ded1cc51-1d1f-4eee-b08e-f5d827b436d7";//Used to secure linksetdata
 integer barbg;
+integer display;
 showstats(integer yes)
 {
+    display=yes;
     if(yes)
     {
         list self=llCSV2List(llLinksetDataReadProtected("Data",pass));
         list class=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
         //llSay(0,llDumpList2String(class,","));
         string level=llList2String(llParseString2List(llList2String(self,1),[";"],[""]),(integer)llList2String(class,0));
-    
+
         string text="Level: "+level+
             "\nClass: "+llList2String(class,1)+
             "\nEXP: "+llList2String(self,2)+
@@ -141,6 +143,7 @@ loadequip(string current)//Loads equipment stats
     datatype="equipupdate";
     synclsd(self);
     qid=llUpdateKeyValue(o+suffix,llLinksetDataReadProtected("Data",pass),1,current);
+    if(display)showstats(display);
 }
 synclsd(list parse)
 {
