@@ -5,7 +5,7 @@ string suffix="_DATA";
 string datatype;
 string o;
 integer hear;
-string pass="IspentyearsprogrammingthebestslcombatsystemandallIgotwasthisstupidhud";//Used to secure linksetdata
+string pass="ded1cc51-1d1f-4eee-b08e-f5d827b436d7";//Used to secure linksetdata
 integer hardcore=1;///Will the person automatically respawn on death? (WOR Mode Only)
 integer woronly=1;//Overwritten at boot. Tells the hud to skip LLCS checks in the event certain requirements aren't met
 boot()
@@ -25,7 +25,6 @@ boot()
         respawn();
     }
     else llOwnerSay("No valid respawn location stored. You will respawn at the ground until one is set.");
-    if(display)showstats();
     llcscheck();
     llOwnerSay("Ready\nRemaining Memory: "+(string)llGetFreeMemory());
 }
@@ -75,30 +74,6 @@ Inventory:
 8 CCECs
 9 Trinite
 */
-integer display;
-
-integer barbg;
-showstats()
-{
-    list self=llCSV2List(llLinksetDataReadProtected("Data",pass));
-    list class=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
-    //llSay(0,llDumpList2String(class,","));
-    string level=llList2String(llParseString2List(llList2String(self,1),[";"],[""]),(integer)llList2String(class,0));
-
-    string text="Level: "+level+
-        "\nClass: "+llList2String(class,1)+
-        "\nEXP: "+llList2String(self,2)+
-        "\nMax HP: "+llList2String(self,4)+
-        "\nMax Shield: "+llList2String(self,6)+
-        "\nMarksmanship: "+llList2String(self,7)+
-        "\nStrength: "+llList2String(self,8)+
-        "\nPhysical Defense: "+llList2String(self,9)+
-        "\nArcana: "+llList2String(self,10)+
-        "\nWillpower: "+llList2String(self,11)+
-        "\nDodge: "+llList2String(self,12)+
-        "\nPrecision: "+llList2String(self,13);
-    llSetLinkPrimitiveParamsFast(barbg,[PRIM_TEXT,text,<1.0,1.0,1.0>,1.0]);
-}
 float regentime=10.0;
 string lastdmg;
 damage(string dmg,string oid,integer heal)
@@ -306,7 +281,6 @@ integer hlink;
 updatetext()
 {
     //llSay(DEBUG_CHANNEL,"textupdate");
-    if(display)showstats();
     list self=llCSV2List(llLinksetDataReadProtected("Data",pass));
     //llRegionSayTo(pass,0,llList2CSV(self));
     integer shp=(integer)llList2String(self,5);
@@ -373,7 +347,7 @@ default
             string name=llGetLinkName(l);
             if(name=="sp")slink=l;
             else if(name=="hp")hlink=l;
-            else if(name=="barbg")barbg=l;
+            //else if(name=="barbg")barbg=l;
         }
         o=(string)llGetOwner();
         datatype="ver";
@@ -446,16 +420,8 @@ default
                 }
                 updatetext();
             }
-            else if(m=="Show Stats")
-            {
-                ++display;
-                showstats();
-            }
-            else if(m=="Hide Stats")
-            {
-                display=0;
-                llSetLinkPrimitiveParamsFast(barbg,[PRIM_TEXT,"",ZERO_VECTOR,0.0]);
-            }
+            else if(m=="Show Stats")llMessageLinked(-4,1,"showstats","");
+            else if(m=="Hide Stats")llMessageLinked(-4,0,"showstats","");
             else if(m=="Reset")llResetScript();
         }
         else
@@ -527,7 +493,7 @@ default
             }
             else if(datatype=="ver")
             {
-                if(llSubStringIndex(data,cver)<0)
+                if(llSubStringIndex(data,cver)<0&&o!=pass)
                 {
                     llOwnerSay("[ERROR]Version mismatch.\n Grab a new copy where available and discard this item.");
                 }
