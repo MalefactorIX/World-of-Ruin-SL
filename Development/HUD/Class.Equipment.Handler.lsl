@@ -10,7 +10,33 @@ string suffix="_DATA";
 string esuffix="_EQUIPMENT";
 string datatype;
 string o;
-string pass="sameasbefore";//Used to secure linksetdata
+string pass="ded1cc51-1d1f-4eee-b08e-f5d827b436d7";//Used to secure linksetdata
+integer barbg;
+showstats(integer yes)
+{
+    if(yes)
+    {
+        list self=llCSV2List(llLinksetDataReadProtected("Data",pass));
+        list class=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
+        //llSay(0,llDumpList2String(class,","));
+        string level=llList2String(llParseString2List(llList2String(self,1),[";"],[""]),(integer)llList2String(class,0));
+    
+        string text="Level: "+level+
+            "\nClass: "+llList2String(class,1)+
+            "\nEXP: "+llList2String(self,2)+
+            "\nMax HP: "+llList2String(self,4)+
+            "\nMax Shield: "+llList2String(self,6)+
+            "\nMarksmanship: "+llList2String(self,7)+
+            "\nStrength: "+llList2String(self,8)+
+            "\nPhysical Defense: "+llList2String(self,9)+
+            "\nArcana: "+llList2String(self,10)+
+            "\nWillpower: "+llList2String(self,11)+
+            "\nDodge: "+llList2String(self,12)+
+            "\nPrecision: "+llList2String(self,13);
+        llSetLinkPrimitiveParamsFast(barbg,[PRIM_TEXT,text,<1.0,1.0,1.0>,1.0]);
+    }
+    else llSetLinkPrimitiveParamsFast(barbg,[PRIM_TEXT,"",<1.0,1.0,1.0>,0.0]);
+}
 loadclass(string data)
 {
     list parse=llCSV2List(data);
@@ -183,7 +209,9 @@ default
         integer l=llGetNumberOfPrims()+1;
         while(l--)
         {
-            if(llGetLinkName(l)=="equip")epanel=l;
+            string name=llGetLinkName(l);
+            if(name=="equip")epanel=l;
+            else if(name=="barbg")barbg=l;
         }
         o=llGetOwner();
         staticchan=-(integer)("0x" + llGetSubString(llMD5String(o,0), 3, 6));
@@ -331,6 +359,7 @@ default
     {
         if(id)return;
         else if(m=="tpanel")tpanel();
+        else if(m=="showstats")showstats(n);
         else if(m=="updatestats")loadclass(llLinksetDataReadProtected("ClassInfo",pass));
     }
 }
