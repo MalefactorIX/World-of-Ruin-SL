@@ -10,7 +10,7 @@ string suffix="_DATA";
 string esuffix="_EQUIPMENT";
 string datatype;
 string o;
-string pass="ded1cc51-1d1f-4eee-b08e-f5d827b436d7";//Used to secure linksetdata
+string pass="sameasbefore";//Used to secure linksetdata
 loadclass(string data)
 {
     list parse=llCSV2List(data);
