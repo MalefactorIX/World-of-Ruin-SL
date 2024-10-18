@@ -2,6 +2,7 @@ integer epanel;
 integer epon;
 tpanel()
 {
+    llPlaySound("41f8a1bf-9bc3-61ed-9f71-296b4535fafe",0.5);
     epon=!epon;
     llSetLinkAlpha(epanel,epon,-1);
 }
@@ -86,26 +87,32 @@ loadequip(string current)//Loads equipment stats
         list parse=llCSV2List(data);
         integer l=llGetListLength(parse);
         integer i=4;//Starts with max HP
-        list leveldata=llParseString2List(llList2String(self,0),[";"],[""]);
-        integer index=(integer)llList2String(parse,0);
-        integer level=(integer)llList2String(llParseString2List(llList2String(self,1),[";"],[""]),index);
+        integer level=(integer)llList2String(parse,1);//Item level
         //llSay(0,llList2CSV(self));
-        while(i<l)
-        {
-            if(i==5)++i;//Skips current shield
-            list stat=llParseString2List(llList2String(parse,i),[";"],[""]);
-            float scale=(float)llList2String(stat,0);
-            if(llGetListLength(stat)>1)scale=scale+(level*(integer)llList2String(stat,1));
-            if(scale<0.0)scale=0.0;//Do not let a stat go below 0.
-            self=llListReplaceList(self,[llFloor(scale)],i,i);
-            ++i;
-        }
-        //llSay(0,llDumpList2String(self,","));
         string item=llList2String(parse,0);
         integer n=llSubStringIndex(item,";");
         string itemname=llGetSubString(item,n+1,-1);
-        string ilevel=llList2String(parse,1);
-        llOwnerSay("Equipping "+itemname+" [Lvl "+ilevel+"]");
+        string stattext;
+        while(i<l)
+        {
+            list statnames=["n","n","n","n","Max HP","n","Max SP","Marksmanship","Strength","Defense","Arcana","Willpower","Dodge","Precision"];
+            if(i==5)++i;//Skips current shield
+            list stat=llParseString2List(llList2String(parse,i),[";"],[""]);
+            float scale=(float)llList2String(stat,0);
+
+            if(llGetListLength(stat)>1)scale=scale+(level*(integer)llList2String(stat,1));
+            integer final=llFloor(scale);
+            //Stattext
+            if(final>0)stattext+=llList2String(statnames,i)+" +"+(string)final+"\n";
+            else if(final<0)stattext+=llList2String(statnames,i)+" "+(string)final+"\n";
+            //end text
+            final+=(integer)llList2String(self,i);
+            if(final<0)final=0;//Do not let a stat drop below 0;
+            self=llListReplaceList(self,[final],i,i);
+            ++i;
+        }
+        llOwnerSay("Equipping "+itemname+" [Lvl "+(string)level+"]\n"+stattext);
+        //llSay(0,llDumpList2String(self,","));
         integer a;
         integer b;
         if(llSubStringIndex(item,"HELMET")>-1)
@@ -128,7 +135,7 @@ loadequip(string current)//Loads equipment stats
             a=23;
             b=24;
         }
-        self=llListReplaceList(self,[ilevel,llGetSubString(item,0,n-1)],a,b);
+        self=llListReplaceList(self,[level,llGetSubString(item,0,n-1)],a,b);
         /*ITEMS
         17 HELMET Level: Level for helmet item
         18 HELMET Key: Experience key used to pull stats for item
@@ -222,7 +229,6 @@ default
         datatype="equipcheck";
         qid=llReadKeyValue((string)o+esuffix);
         tpanel();
-        llOwnerSay("Equipment Handler: "+(string)llGetFreeMemory()+"kb free");
     }
     attach(key id)
     {
@@ -245,6 +251,7 @@ default
             //llSay(0,(string)panel);
             if(panel<4)
             {
+                llPlaySound("41f8a1bf-9bc3-61ed-9f71-296b4535fafe",0.5);
                 list menuop=["HELMET","ARMOR","LEGS","MISC"];
                 string data=llList2String(menuop,panel);
                 datatype="menu"+data;
@@ -269,6 +276,7 @@ default
         }
         else //Dialog box
         {
+            llPlaySound("41f8a1bf-9bc3-61ed-9f71-296b4535fafe",0.5);
             if(llGetSubString(datatype,0,3)=="menu")//We picked an item, get info to confirm.
             {
                 m=llGetSubString(datatype,4,-1)+m;
@@ -279,7 +287,7 @@ default
             {
                 string info=llLinksetDataReadProtected("Iteminfo",pass);
                 string item=llGetSubString(info,0,llSubStringIndex(info,";")-1);
-                llSay(0,item);
+                //llSay(0,item);
                 if(llSubStringIndex(item,"HELMET")>-1)llLinksetDataWriteProtected("HelmetInfo",info,pass);
                 else if(llSubStringIndex(item,"ARMOR")>-1)llLinksetDataWriteProtected("ArmorInfo",info,pass);
                 else if(llSubStringIndex(item,"LEGS")>-1)llLinksetDataWriteProtected("LegsInfo",info,pass);
@@ -325,6 +333,7 @@ default
                     string item=llList2String(parse,l);
                     if(llSubStringIndex(item,name)>-1)
                     {
+                        //llSay(0,"Item Found: "+item);
                         l=0;
                         parse=llParseString2List(item,[";"],[""]);
                         item=llList2String(parse,1);//Just reusing this variable. It's the item level
@@ -332,10 +341,11 @@ default
                         parse=llCSV2List(info);
                         parse=llListReplaceList(parse,[item],1,1);
                         info=llList2CSV(parse);
-                        if(llSubStringIndex(item,"HELMET")>-1)llLinksetDataWriteProtected("HelmetInfo",info,pass);
-                        else if(llSubStringIndex(item,"ARMOR")>-1)llLinksetDataWriteProtected("ArmorInfo",info,pass);
-                        else if(llSubStringIndex(item,"LEGS")>-1)llLinksetDataWriteProtected("LegsInfo",info,pass);
-                        else if(llSubStringIndex(item,"MISC")>-1)llLinksetDataWriteProtected("AccInfo",info,pass);
+                        //llSay(0,info);
+                        if(llSubStringIndex(name,"HELMET")>-1)llLinksetDataWriteProtected("HelmetInfo",info,pass);
+                        else if(llSubStringIndex(name,"ARMOR")>-1)llLinksetDataWriteProtected("ArmorInfo",info,pass);
+                        else if(llSubStringIndex(name,"LEGS")>-1)llLinksetDataWriteProtected("LegsInfo",info,pass);
+                        else if(llSubStringIndex(name,"MISC")>-1)llLinksetDataWriteProtected("AccInfo",info,pass);
                     }
                     else if(l<1)
                     {
@@ -343,7 +353,17 @@ default
                         return;
                     }
                 }
-                loadclass(llLinksetDataReadProtected("ClassInfo",pass));//Triggers full reload
+                list data=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
+                //llSay(0,llLinksetDataReadProtected("ClassInfo",pass));
+                datatype="getclass";
+                qid=llReadKeyValue(llList2String(data,2));//Reload everything
+            }
+            else if(datatype=="equipcheck")
+            {
+                list data=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
+                datatype="getclass";
+                qid=llReadKeyValue(llList2String(data,2));
+                llOwnerSay("Equipment Handler: "+(string)llGetFreeMemory()+"kb free");
             }
         }
         else
@@ -363,6 +383,22 @@ default
         if(id)return;
         else if(m=="tpanel")tpanel();
         else if(m=="showstats")showstats(n);
-        else if(m=="updatestats")loadclass(llLinksetDataReadProtected("ClassInfo",pass));
+        else if(m=="updatestats")
+        {
+            list data=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
+            datatype="getclass";
+            qid=llReadKeyValue(llList2String(data,2));
+        }
+        else if(m=="unequip")
+        {
+            llOwnerSay("Unequiping all items...");
+            llLinksetDataWriteProtected("HelmetInfo","null",pass);
+            llLinksetDataWriteProtected("ArmorInfo","null",pass);
+            llLinksetDataWriteProtected("LegsInfo","null",pass);
+            llLinksetDataWriteProtected("AccInfo","null",pass);
+            list data=llCSV2List(llLinksetDataReadProtected("ClassInfo",pass));
+            datatype="getclass";
+            qid=llReadKeyValue(llList2String(data,2));
+        }
     }
 }
