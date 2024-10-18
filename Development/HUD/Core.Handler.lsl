@@ -324,7 +324,7 @@ menudialog(string menu)
 {
     llListenRemove(dhear);
     dhear=llListen(-188,"",o,"");
-    if(menu=="main")llDialog(o,"Choose an option",["Show Stats","Hide Stats","Reset","Character"],-188);
+    if(menu=="main")llDialog(o,"Choose an option",["Show Stats","Hide Stats","Reset","Character","Unequip All"],-188);
     else if(menu=="respawn")llDialog(o,"Choose an option",["RespawnList","RespawnNow","Hardcore"],-188);
     else if(menu=="combat")llDialog(o,"Choose an option",["HIT ON","HIT OFF","HealthText"],-188);
 }
@@ -361,6 +361,7 @@ default
             cmenu="main";
             if(l)//0 = Equippanel toggle
             {
+                llPlaySound("41f8a1bf-9bc3-61ed-9f71-296b4535fafe",0.5);
                 if(l==1)menudialog("combat");
                 else if(l==2)menudialog("respawn");
                 else menudialog("main");
@@ -373,6 +374,7 @@ default
         //llSay(0,m);
         if(chan==-188)
         {
+            llPlaySound("41f8a1bf-9bc3-61ed-9f71-296b4535fafe",0.5);
             if(cmenu=="respawn")
             {
                 llListenRemove(dhear);
@@ -422,6 +424,8 @@ default
             }
             else if(m=="Show Stats")llMessageLinked(-4,1,"showstats","");
             else if(m=="Hide Stats")llMessageLinked(-4,0,"showstats","");
+            else if(m=="Unequip All")llMessageLinked(-4,0,"unequip","");
+            else if(m=="Character")llOwnerSay("Coming soon!");
             else if(m=="Reset")llResetScript();
         }
         else
