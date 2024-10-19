@@ -4,7 +4,7 @@ By default, the region will do nothing when you die and respawning is controlled
 
 Depending on region settings, the meter will automatically disable LLCS support. This will take place if the region's death action is not set to do nothing, if damage adjustment is disabled, or if damage as a whole is disabled. If this is the case, assume LLCS will function as default.
 
-Note that player kills from LLCS do not grant any experience. NPCs do not support LLCS or collision damage, but do support LBA as long as your meter is worn.
+Note that player kills from LLCS do not grant any experience. NPCs do not support LLCS or collision damage, but do support LBA as long as your meter is worn. NPCs will not damage you if you do not have a meter.
 
 ### Region-Specific Advisory
 The WOR region imposes the following restrictions on LLCS damage. Keep in mind, any attempts to intentionally bypass these restrictions will be considered cheating and weapons which do so without due reason will be banned from use:
