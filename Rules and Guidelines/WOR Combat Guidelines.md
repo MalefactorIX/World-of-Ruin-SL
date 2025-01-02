@@ -17,14 +17,3 @@ The WOR region imposes the following restrictions on LLCS damage. Keep in mind, 
 Movement assists are not allowed. This excludes those provided directly to players or those which mimic those items, ie. if your melee weapon has a lunge with a reasonable cooldown it will be allowed.
 
 Avatar flight is permitted where relevant to the character. Anything which emulates or applies additional assistance to the default linden flight is not allowed. You must use the "Fly" feature on your client. Do bare in mind that WOR weapons deal 50% more damage while you are flying.
-
-# Weapons
-### Firearms
-- Due to the 0.15s window, it is recommended to avoid weapons which fire faster than 600 RPM unless those weapons deal less than 100 damage per hit.
-- Raycast/Hitscan weapons are restricted 600 RPM and a 50 LLCS damage cap per hit. Weapons which are 120 RPM or less may deal 100 damage per hit instead and must have a capacity no higher than 15+1 rounds.
-- Non-AOE, Projectile weapons are limited to 100 rounds.
-
-### Explosives
-- Within 5m, may deal 100 damage. From 6m onward, damage must not exceed 50 LLCS.
-- Area-of-effect weaponry may not tether their effects to players beyond their effective radius, ie. Damage over Time, flashbangs, slowing effects, etc.
-- Crowd-control munitions may not disable or fully restrict control of an avatar or their attachments, ie. cagers, freezing effects, etc.
