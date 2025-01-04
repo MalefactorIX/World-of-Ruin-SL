@@ -19,13 +19,6 @@ This documentation refers to functions that will be available in the WOR 2.0 HUD
 4. To load up the character, repeated Step 1 and select "Load".
 5. You can now access the character from the load menu.
 
-## Conversion
-There is a 50% chance on death for you to build 1 stack of corruption, 10% if you have more than 999. Corruption decays by 50 per day while below 500 and you become fully corrupted at 1000. Above 500, specific facilities are required to reduce it. Specific events or triggers can inflict large amounts of corruption outside of this. Corruption is tracked per character and will be visible in your character sheet on your hud. Keep in mind that setting your character to the Corrupted faction will start you off at 1000 Corruption.
-
-Keep in mind that Corruption WILL be visible under certain conditions and players wanting to be sneaky about it will need to exercise extreme caution to avoid revealing their taint. At specific thresholds, you'll gain "symptoms" that may need to be reflected in the appearance of your character. These are random but do not change once recieved. You can receive up to 3 before becoming fully corrupted. These will appear in your character sheet.
-
-Once corruption reaches 1000, you cannot recover from it any more and your faction will automatically change to Corrupted. Your original faction will be noted however following this change.
-
 # Faction-Specific Uniform Guidelines
 ### Empire of Tanta'knoll
 - A uniform is provided for characters where needed.
