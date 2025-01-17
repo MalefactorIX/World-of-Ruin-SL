@@ -39,7 +39,8 @@ Offenses of this nature are considered 'cheating offenses'. Due to the broad spe
 
 # [LLCS Guidelines]
 Keep in mind, these guidelines primarily apply to infantry but may be used as a basis for vehicles as well.
-```1. Standard munitions may only deal generic damage (Parameter 0)
+```
+1. Standard munitions may only deal generic damage (Parameter 0)
     1a. Param 104, aka "Anti-tank", is reserved for vehicle weapons only such as tank shells or AP rockets.
 
 2. Body Armor is only permitted to reduce damage from a single damage type. It must remain vulnerable to all other types. For overlapping types (ie. Force and Anti-Tank), you may filter for jointly.
